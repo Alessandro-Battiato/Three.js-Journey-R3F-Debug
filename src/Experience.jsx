@@ -5,7 +5,7 @@ export default function Experience()
 {
     const { spherePosition } = useControls({
         spherePosition: {
-            value: -2,
+            value: { x: -2, y: 0 },
             min: -4,
             max: 4,
             step: 0.01
@@ -19,7 +19,7 @@ export default function Experience()
         <directionalLight position={ [ 1, 2, 3 ] } intensity={ 4.5 } />
         <ambientLight intensity={ 1.5 } />
 
-        <mesh position-x={ spherePosition }>
+        <mesh position={ [ spherePosition.x, spherePosition.y, 0 ] }>
             <sphereGeometry />
             <meshStandardMaterial color="orange" />
         </mesh>
