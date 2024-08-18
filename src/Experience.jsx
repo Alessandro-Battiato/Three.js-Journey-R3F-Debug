@@ -1,7 +1,12 @@
 import { OrbitControls } from '@react-three/drei'
+import { useControls } from 'leva'
 
 export default function Experience()
 {
+    const { spherePosition } = useControls({
+        spherePosition: -2
+    });
+
     return <>
 
         <OrbitControls makeDefault />
@@ -9,7 +14,7 @@ export default function Experience()
         <directionalLight position={ [ 1, 2, 3 ] } intensity={ 4.5 } />
         <ambientLight intensity={ 1.5 } />
 
-        <mesh position-x={ - 2 }>
+        <mesh position-x={ spherePosition }>
             <sphereGeometry />
             <meshStandardMaterial color="orange" />
         </mesh>
