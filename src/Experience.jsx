@@ -4,7 +4,12 @@ import { useControls } from 'leva'
 export default function Experience()
 {
     const { spherePosition } = useControls({
-        spherePosition: -2
+        spherePosition: {
+            value: -2,
+            min: -4,
+            max: 4,
+            step: 0.01
+        }
     });
 
     return <>
