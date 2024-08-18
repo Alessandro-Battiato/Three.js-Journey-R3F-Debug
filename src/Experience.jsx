@@ -5,7 +5,7 @@ export default function Experience()
 {
     const { spherePosition } = useControls({
         spherePosition: {
-            value: { x: -2, y: 0 },
+            value: { x: -2, y: 0, z: 0 }, // enabling the z value results in losing the joystick control
             min: -4,
             max: 4,
             step: 0.01
@@ -19,7 +19,7 @@ export default function Experience()
         <directionalLight position={ [ 1, 2, 3 ] } intensity={ 4.5 } />
         <ambientLight intensity={ 1.5 } />
 
-        <mesh position={ [ spherePosition.x, spherePosition.y, 0 ] }>
+        <mesh position={ [ spherePosition.x, spherePosition.y, spherePosition.z ] }>
             <sphereGeometry />
             <meshStandardMaterial color="orange" />
         </mesh>
