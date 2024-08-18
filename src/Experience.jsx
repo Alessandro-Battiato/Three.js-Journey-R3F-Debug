@@ -1,5 +1,5 @@
 import { OrbitControls } from '@react-three/drei'
-import { useControls } from 'leva'
+import { button, useControls } from 'leva'
 
 export default function Experience()
 {
@@ -12,7 +12,16 @@ export default function Experience()
             joystick: 'invertY' // this fixes the inverted Y axis while using the joystick so for example when dragging the joystick up, the default behaviour makes the object goes down and vice versa, this fixes the issue
         },
         sphereColor: '#ff0000', // alpha in these colors won't work because of how Three.js handles the colors
-        visible: true
+        visible: true,
+        myInterval: {
+            min: 0,
+            max: 10,
+            value: [ 4, 5 ]
+        },
+        clickMe: button(() => {
+            alert('clicked')
+        }),
+        choice: { options: [ 'a', 'b', 'c' ] }
     });
 
     return <>
