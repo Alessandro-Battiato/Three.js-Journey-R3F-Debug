@@ -1,8 +1,13 @@
 import { OrbitControls } from '@react-three/drei'
 import { folder, button, useControls } from 'leva'
+import { Perf } from 'r3f-perf';
 
 export default function Experience()
 {
+    const { perfVisible } = useControls({
+        perfVisible: true
+    });
+
     const { spherePosition, sphereColor, visible } = useControls({
         spherePosition: {
             value: { x: -2, y: 0 }, // enabling the z value results in losing the joystick control
@@ -34,6 +39,8 @@ export default function Experience()
     })
 
     return <>
+
+        {perfVisible ? <Perf position="top-left" /> : null}
 
         <OrbitControls makeDefault />
 
