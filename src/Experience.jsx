@@ -1,5 +1,5 @@
 import { OrbitControls } from '@react-three/drei'
-import { button, useControls } from 'leva'
+import { folder, button, useControls } from 'leva'
 
 export default function Experience()
 {
@@ -24,6 +24,15 @@ export default function Experience()
         choice: { options: [ 'a', 'b', 'c' ] }
     });
 
+    const { boxScale } = useControls('cube', {
+        boxScale: {
+            value: 1.5,
+            step: 0.01,
+            min: 0,
+            max: 5
+        }
+    })
+
     return <>
 
         <OrbitControls makeDefault />
@@ -36,7 +45,7 @@ export default function Experience()
             <meshStandardMaterial color={sphereColor} />
         </mesh>
 
-        <mesh position-x={ 2 } scale={ 1.5 }>
+        <mesh position-x={ 2 } scale={ boxScale }>
             <boxGeometry />
             <meshStandardMaterial color="mediumpurple" />
         </mesh>
